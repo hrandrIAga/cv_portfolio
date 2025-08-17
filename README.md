@@ -9,31 +9,31 @@ Portfolio website showcasing data science projects, research work, and professio
 
 ## 📁 Repository Structure
 my-cv-website/
-├── README.md                                       # Project documentation
-├── index.html                                      # Main SPA with all sections
-├── projects/                                       # Individual project pages
+├── README.md                                       # Project documentation  
+├── index.html                                      # Main SPA with all sections  
+├── projects/                                       # Individual project pages  
 │   ├── hackathons/
-│   │   ├── project-1.html
-│   │   ├── ...
-│   ├── research/
-│   │   ├── project-1.html
-│   │   └── ...
-│   └── others/
-│       └── project-1.html
-└── assets/                                         # Static assets
+│   │   ├── project-1.html  
+│   │   ├── ...  
+│   ├── research/  
+│   │   ├── project-1.html  
+│   │   └── ...  
+│   └── others/  
+│       └── project-1.html  
+└── assets/                                         # Static assets  
 ├── css/
-│   └── styles.css                             # Main stylesheet
-├── js/
-│   └── scripts.js                             # Main JavaScript
-├── images/
-│   ├── profile.jpg                            # Profile photo
-│   └── projects/                              # Project images
-│       ├── hackathons/
-│       ├── research/
-│       └── others/
-└── docs/
-├── cv-en.pdf                              # English CV
-└── cv-fr.pdf                              # French CV
+│   └── styles.css                             # Main stylesheet  
+├── js/  
+│   └── scripts.js                             # Main JavaScript  
+├── images/  
+│   ├── profile.jpg                            # Profile photo  
+│   └── projects/                              # Project images  
+│       ├── hackathons/  
+│       ├── research/  
+│       └── others/  
+└── docs/  
+├── cv-en.pdf                              # English CV  
+└── cv-fr.pdf                              # French CV  
 
 
 ## 🌐 Features
