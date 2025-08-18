@@ -1,0 +1,66 @@
+[
+  {
+    "category": "Languages",
+    "skills": [
+      {"name": "French", "level": "advanced"},
+      {"name": "English (TOEIC 975/990)", "level": "advanced"},
+      {"name": "German", "level": "medium"},
+      {"name": "Malagasy", "level": "advanced"}
+    ]
+  },
+  {
+    "category": "Data Science & AI",
+    "skills": [
+      {"name": "Python", "level": "advanced"},
+      {"name": "TensorFlow", "level": "advanced"},
+      {"name": "PyTorch", "level": "advanced"},
+      {"name": "Keras", "level": "advanced"},
+      {"name": "Pandas/Polars", "level": "advanced"},
+      {"name": "NumPy", "level": "advanced"},
+      {"name": "Scikit-learn", "level": "advanced"},
+      {"name": "Streamlit", "level": "advanced"}
+    ]
+  },
+  {
+    "category": "Programming & Development",
+    "skills": [
+      {"name": "R", "level": "medium"},
+      {"name": "Bash", "level": "medium"},
+      {"name": "MySQL", "level": "medium"},
+      {"name": "C++", "level": "beginner"},
+      {"name": "PHP (Laravel)", "level": "medium"},
+      {"name": "Vue.JS", "level": "medium"},
+      {"name": "Git", "level": "medium"}
+    ]
+  },
+  {
+    "category": "Business & Analytics Tools",
+    "skills": [
+      {"name": "MS Excel", "level": "advanced"},
+      {"name": "Power BI", "level": "advanced"},
+      {"name": "Google Suite & Apps Script", "level": "advanced"},
+      {"name": "AWS Bedrock", "level": "medium"}
+    ]
+  },
+  {
+    "category": "Soft Skills",
+    "skills": [
+      {"name": "Curiosity", "level": "advanced"},
+      {"name": "Creativity", "level": "advanced"},
+      {"name": "Problem-solving", "level": "advanced"},
+      {"name": "Documentation", "level": "advanced"},
+      {"name": "Team work", "level": "advanced"},
+      {"name": "Fast Learner", "level": "advanced"}
+    ]
+  },
+  {
+    "category": "Interests & Achievements",
+    "skills": [
+      {"name": "Water-Polo (14 years, National Junior level)", "level": "advanced"},
+      {"name": "Geography (Geoguessr Gold Division)", "level": "advanced"},
+      {"name": "Cybersecurity (DGSE 404CTF 2024 - 142nd/3267)", "level": "medium"},
+      {"name": "Scientific Research (2 IEEE Conference Papers)", "level": "advanced"},
+      {"name": "First-aid & Sea Lifeguard", "level": "advanced"}
+    ]
+  }
+]

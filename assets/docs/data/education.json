@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Master's in General IT Engineering",
+    "school": "Télécom SudParis - Institut Polytechnique de Paris",
+    "period": "2022-2024",
+    "location": "Paris, France",
+    "coursework": "Data Science, Software Programming, Mathematics, Optimization",
+    "details": [
+      "Comprehensive program covering advanced IT engineering concepts",
+      "Specialized focus on data science and machine learning applications",
+      "Strong foundation in mathematical optimization and software development",
+      "Hands-on experience with modern programming frameworks and tools"
+    ]
+  },
+  {
+    "title": "Master's in Management",
+    "school": "Institut Mines-Télécom Business School",
+    "period": "2020-2024",
+    "location": "Paris, France",
+    "coursework": "Econometrics, R Programming, Law, Office Tools, Management of Technologies",
+    "details": [
+      "Dual degree program combining business management with technology focus",
+      "Advanced coursework in econometrics and statistical analysis",
+      "Legal and regulatory frameworks for technology companies",
+      "Strategic management of technology and innovation processes",
+      "Developed strong analytical and leadership skills"
+    ]
+  }
+]

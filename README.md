@@ -8,33 +8,47 @@ Portfolio website showcasing data science projects, research work, and professio
 - Research collaborations
 
 ## 📁 Repository Structure
-my-cv-website/
-├── README.md                                       # Project documentation  
-├── index.html                                      # Main SPA with all sections  
-├── projects/                                       # Individual project pages  
-│   ├── hackathons/
+├── README.md  
+├── index.html                          # Landing/welcome page  
+├── interactive-cv.html                 # Main interactive CV page  
+├── projects/  
+│   ├── hackathons/  
 │   │   ├── project-1.html  
-│   │   ├── ...  
+│   │   └── ...  
 │   ├── research/  
 │   │   ├── project-1.html  
 │   │   └── ...  
 │   └── others/  
-│       └── project-1.html  
-└── assets/                                         # Static assets  
-├── css/
-│   └── styles.css                             # Main stylesheet  
-├── js/  
-│   └── scripts.js                             # Main JavaScript  
-├── images/  
-│   ├── profile.jpg                            # Profile photo  
-│   └── projects/                              # Project images  
-│       ├── hackathons/  
-│       ├── research/  
-│       └── others/  
-└── docs/  
-├── cv-en.pdf                              # English CV  
-└── cv-fr.pdf                              # French CV  
-
+│   │   ├── project-1.html  
+│   │   └── ...  
+├── assets/  
+│   ├── components/  
+│   │   ├── header.html  
+│   │   └── footer.html  
+│   ├── css/  
+│   │   ├── main.css                    # Global styles  
+│   │   ├── landing.css                 # Landing page specific  
+│   │   ├── interactive-cv.css          # Interactive CV specific  
+│   │   └── projects.css                # Projects pages specific  
+│   ├── js/  
+│   │   ├── main.js                     # Global utilities  
+│   │   ├── interactive-cv.js           # Tab switching, expand/collapse  
+│   │   └── projects.js                 # Project carousel/gallery  
+│   ├── images/  
+│   │   ├── profile/  
+│   │   ├── projects/  
+│   │   │   ├── hackathons/  
+│   │   │   ├── research/  
+│   │   │   └── others/  
+│   │   └── icons/                      # UI icons, social media icons  
+│   └── docs/  
+│       ├── cv-en.pdf  
+│       ├── cv-fr.pdf  
+│       └── data/  
+│           ├── experience.json         # Experience data  
+│           ├── education.json          # Education data  
+│           ├── skills.json             # Skills data  
+│           └── projects.json           # Projects metadata  
 
 ## 🌐 Features
 - **Responsive Design** - Works on all devices
