@@ -146,12 +146,21 @@ function createExpandableItem(data, type) {
         info.appendChild(company);
     }
     
-    // Add referee if available (for experience items)
+    // Add reference if available (for experience items)
     if (data.referee && type === 'experience') {
-        const referee = document.createElement('div');
-        referee.className = 'referee';
-        referee.textContent = data.referee;
-        info.appendChild(referee);
+        const reference = document.createElement('div');
+        reference.className = 'referee';
+        
+        const referenceLabel = document.createElement('span');
+        referenceLabel.className = 'reference-label';
+        referenceLabel.textContent = 'Reference: ';
+        
+        const referenceText = document.createElement('span');
+        referenceText.textContent = data.referee;
+        
+        reference.appendChild(referenceLabel);
+        reference.appendChild(referenceText);
+        info.appendChild(reference);
     }
     
     if (data.period) {

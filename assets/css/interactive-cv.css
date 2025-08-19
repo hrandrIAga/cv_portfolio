@@ -203,6 +203,12 @@ body {
     line-height: 1.4;
 }
 
+.reference-label {
+    font-weight: 500;
+    color: #555;
+    font-style: normal;
+}
+
 .item-info .period {
     color: #666;
     font-size: 0.9rem;
