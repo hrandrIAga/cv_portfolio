@@ -79,127 +79,16 @@ function loadFallbackData() {
     renderSkills();
 }
 
-function renderExperience(experiences) {
-    const container = document.getElementById("experience-list");
-    container.innerHTML = "";
-
-    experiences.forEach(exp => {
-        const item = document.createElement("div");
-        item.classList.add("content-item");
-
-        // --- HEADER (collapsed view) ---
-        const header = document.createElement("div");
-        header.classList.add("item-header");
-
-        const info = document.createElement("div");
-        info.classList.add("item-info");
-
-        const title = document.createElement("h3");
-        title.textContent = exp.title;
-
-        const company = document.createElement("div");
-        company.classList.add("company");
-
-        // clickable company
-        if (exp.company_url) {
-            company.innerHTML = `<a href="${exp.company_url}" target="_blank">${exp.company}</a>`;
-        } else {
-            company.textContent = exp.company;
-        }
-
-        const period = document.createElement("div");
-        period.classList.add("period");
-        period.textContent = `${exp.period} | ${exp.location}`;
-
-        // referee italic (non-expanded view)
-        const referee = document.createElement("div");
-        referee.classList.add("referee");
-        referee.textContent = exp.referee || "";
-
-        info.appendChild(title);
-        info.appendChild(company);
-        info.appendChild(period);
-        info.appendChild(referee);
-
-        const expandIcon = document.createElement("div");
-        expandIcon.classList.add("expand-icon");
-        expandIcon.innerHTML = "&#9660;";
-
-        header.appendChild(info);
-        header.appendChild(expandIcon);
-
-        // --- DETAILS (expanded view) ---
-        const detailsWrapper = document.createElement("div");
-        detailsWrapper.classList.add("item-details");
-
-        const detailsContent = document.createElement("div");
-        detailsContent.classList.add("item-details-content");
-
-        // details
-        if (exp.details && exp.details.length > 0) {
-            const ul = document.createElement("ul");
-
-            exp.details.forEach(detail => {
-                if (Array.isArray(detail)) {
-                    // first item is level 1
-                    const li = document.createElement("li");
-                    li.textContent = detail[0];
-
-                    // create sublist
-                    const subUl = document.createElement("ul");
-                    subUl.classList.add("sub-list");
-
-                    detail.slice(1).forEach(subItem => {
-                        const subLi = document.createElement("li");
-                        subLi.textContent = subItem;
-                        subUl.appendChild(subLi);
-                    });
-
-                    li.appendChild(subUl);
-                    ul.appendChild(li);
-                } else {
-                    const li = document.createElement("li");
-                    li.textContent = detail;
-                    ul.appendChild(li);
-                }
-            });
-
-            detailsContent.appendChild(ul);
-        }
-
-        // results
-        if (exp.results && exp.results.length > 0) {
-            const resultsDiv = document.createElement("div");
-            resultsDiv.classList.add("results");
-            resultsDiv.innerHTML = "<strong>Key Results:</strong><ul>" +
-                exp.results.map(r => `<li>${r}</li>`).join("") +
-                "</ul>";
-            detailsContent.appendChild(resultsDiv);
-        }
-
-        // context
-        if (exp.context && exp.context.length > 0) {
-            const contextDiv = document.createElement("div");
-            contextDiv.classList.add("context");
-            contextDiv.innerHTML = exp.context.map(c => `<p>${c}</p>`).join("");
-            detailsContent.appendChild(contextDiv);
-        }
-
-        detailsWrapper.appendChild(detailsContent);
-
-        // --- assemble ---
-        item.appendChild(header);
-        item.appendChild(detailsWrapper);
-
-        // toggle expand
-        header.addEventListener("click", () => {
-            item.classList.toggle("expanded");
-        });
-
-        container.appendChild(item);
+// Render experience section
+function renderExperience() {
+    const container = document.getElementById('experience-list');
+    container.innerHTML = '';
+    
+    experienceData.forEach(item => {
+        const experienceItem = createExpandableItem(item, 'experience');
+        container.appendChild(experienceItem);
     });
 }
-
 
 // Render education section
 function renderEducation() {
@@ -241,8 +130,28 @@ function createExpandableItem(data, type) {
     if (data.company || data.school) {
         const company = document.createElement('div');
         company.className = 'company';
-        company.textContent = data.company || data.school;
+        
+        // Check if company has URL
+        if (data.company_url) {
+            const companyLink = document.createElement('a');
+            companyLink.href = data.company_url;
+            companyLink.target = '_blank';
+            companyLink.className = 'company-link';
+            companyLink.textContent = data.company || data.school;
+            company.appendChild(companyLink);
+        } else {
+            company.textContent = data.company || data.school;
+        }
+        
         info.appendChild(company);
+    }
+    
+    // Add referee if available (for experience items)
+    if (data.referee && type === 'experience') {
+        const referee = document.createElement('div');
+        referee.className = 'referee';
+        referee.textContent = data.referee;
+        info.appendChild(referee);
     }
     
     if (data.period) {
@@ -268,21 +177,89 @@ function createExpandableItem(data, type) {
     const detailsContent = document.createElement('div');
     detailsContent.className = 'item-details-content';
     
+    // Add context section (for experience items)
+    if (data.context && Array.isArray(data.context) && data.context.length > 0) {
+        const contextSection = document.createElement('div');
+        contextSection.className = 'context-box';
+        
+        const contextTitle = document.createElement('h4');
+        contextTitle.textContent = 'Context';
+        contextSection.appendChild(contextTitle);
+        
+        data.context.forEach(contextItem => {
+            const contextParagraph = document.createElement('p');
+            contextParagraph.textContent = contextItem;
+            contextSection.appendChild(contextParagraph);
+        });
+        
+        detailsContent.appendChild(contextSection);
+    }
+    
+    // Add details with nested bullet points
     if (data.details && Array.isArray(data.details)) {
         const list = document.createElement('ul');
+        list.className = 'details-list';
+        
         data.details.forEach(detail => {
-            const listItem = document.createElement('li');
-            listItem.textContent = detail;
-            list.appendChild(listItem);
+            if (typeof detail === 'string') {
+                // Regular bullet point
+                const listItem = document.createElement('li');
+                listItem.className = 'bullet-level-1';
+                listItem.textContent = detail;
+                list.appendChild(listItem);
+            } else if (Array.isArray(detail) && detail.length > 0) {
+                // Nested bullet points
+                const mainItem = document.createElement('li');
+                mainItem.className = 'bullet-level-1';
+                mainItem.textContent = detail[0]; // First item as main bullet
+                list.appendChild(mainItem);
+                
+                // Add sub-bullets if there are more items
+                if (detail.length > 1) {
+                    const subList = document.createElement('ul');
+                    subList.className = 'sub-details-list';
+                    
+                    for (let i = 1; i < detail.length; i++) {
+                        const subItem = document.createElement('li');
+                        subItem.className = 'bullet-level-2';
+                        subItem.textContent = detail[i];
+                        subList.appendChild(subItem);
+                    }
+                    
+                    list.appendChild(subList);
+                }
+            }
         });
+        
         detailsContent.appendChild(list);
     }
     
+    // Add coursework (for education items)
     if (data.coursework) {
         const coursework = document.createElement('div');
         coursework.innerHTML = `<strong>Relevant Coursework:</strong> ${data.coursework}`;
         coursework.style.marginTop = '1rem';
         detailsContent.appendChild(coursework);
+    }
+    
+    // Add results section (for experience items)
+    if (data.results && Array.isArray(data.results) && data.results.length > 0) {
+        const resultsSection = document.createElement('div');
+        resultsSection.className = 'results-box';
+        
+        const resultsTitle = document.createElement('h4');
+        resultsTitle.textContent = 'Key Results';
+        resultsSection.appendChild(resultsTitle);
+        
+        const resultsList = document.createElement('ul');
+        data.results.forEach(result => {
+            const resultItem = document.createElement('li');
+            resultItem.textContent = result;
+            resultsList.appendChild(resultItem);
+        });
+        
+        resultsSection.appendChild(resultsList);
+        detailsContent.appendChild(resultsSection);
     }
     
     details.appendChild(detailsContent);

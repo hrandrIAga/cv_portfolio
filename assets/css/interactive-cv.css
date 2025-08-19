@@ -183,6 +183,26 @@ body {
     margin-bottom: 0.25rem;
 }
 
+.company-link {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.company-link:hover {
+    border-bottom: 1px solid #3498db;
+    color: #2980b9;
+}
+
+.referee {
+    color: #666;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
 .item-info .period {
     color: #666;
     font-size: 0.9rem;
@@ -206,7 +226,7 @@ body {
 }
 
 .content-item.expanded .item-details {
-    max-height: 1000px;
+    max-height: 2000px;
 }
 
 .item-details-content {
@@ -216,23 +236,127 @@ body {
     border-bottom-right-radius: 6px;
 }
 
-.item-details ul {
-    list-style: none;
-    padding-left: 0;
+/* Context Box */
+.context-box {
+    background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+    border: 1px solid #bbdefb;
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #2196f3;
 }
 
-.item-details li {
+.context-box h4 {
+    color: #1565c0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.context-box p {
+    color: #37474f;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.context-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* Details List */
+.details-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.bullet-level-1 {
     margin-bottom: 0.5rem;
     padding-left: 1.5rem;
     position: relative;
+    line-height: 1.5;
 }
 
-.item-details li:before {
+.bullet-level-1:before {
     content: "•";
     color: #3498db;
     position: absolute;
     left: 0;
     font-weight: bold;
+    font-size: 1.1em;
+}
+
+.sub-details-list {
+    list-style: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.bullet-level-2 {
+    margin-bottom: 0.4rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.bullet-level-2:before {
+    content: "◦";
+    color: #7fb3d3;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Results Box */
+.results-box {
+    background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    border-left: 4px solid #4caf50;
+}
+
+.results-box h4 {
+    color: #2e7d32;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.results-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.results-box li {
+    color: #1b5e20;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.results-box li:before {
+    content: "★";
+    color: #4caf50;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.results-box li:last-child {
+    margin-bottom: 0;
 }
 
 /* Skills Specific Styling */
@@ -415,42 +539,3 @@ body {
         grid-template-columns: 1fr;
     }
 }
-/* Nested bullet points */
-.item-details ul ul {
-    margin-top: 0.3rem;
-    margin-left: 1.5rem;
-    list-style: none;
-}
-
-.item-details ul ul li:before {
-    content: "◦"; /* smaller bullet */
-    color: #666;
-    font-weight: normal;
-}
-
-/* Highlight context */
-.context {
-    font-style: italic;
-    color: #555;
-    margin-top: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Highlight results */
-.results {
-    margin-top: 1rem;
-    font-weight: bold;
-    color: #2c3e50;
-    background: #eaf6ff;
-    border-left: 4px solid #3498db;
-    padding: 0.6rem 1rem;
-    border-radius: 4px;
-}
-
-/* Referee italic */
-.referee {
-    font-style: italic;
-    margin-top: 0.8rem;
-    color: #444;
-}
-
