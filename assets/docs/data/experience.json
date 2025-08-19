@@ -2,36 +2,114 @@
   {
     "title": "R&D Data Scientist Intern",
     "company": "MAYA GLOBAL",
+    "company_url": "https://mayaglobal.io/",
     "period": "May 2024 - Oct 2024",
     "location": "Nivelles (Belgium) & London (UK)",
     "details": [
-      "Collected and identified Business Processes IT automation needs",
-      "Developed from conception to deployment AI-driven BI tool to improve business processes (Python, PHP Laravel, Vue.JS)",
-      "Collaborated with cross-functional international team: Customer Success (Belgium & Spain), IT (Sri Lanka & UK)"
-    ]
+      "Identified and automated key business processes through IT solutions",
+      ["Designed, developed, and deployed data-driven tools :",
+      "Implemented front-end interfaces for new tools (Vue.js)",
+      "Built and optimized back-end API routes (MySQL, PHP Laravel)",
+      "Developed new data import pipelines (Excel, MySQL, PHP Laravel)",
+      "Created automated MySQL database cleaning solutions"],
+      "Conducted data modeling and analysis (Python, Excel)",
+      ["Collaborated with international cross-functional teams:", "Customer Success (Belgium & Spain)","IT (Sri Lanka & UK)"]
+    ],
+    "results": [
+      "Reduced MySQL database cleaning time by ~4x",
+      "Accelerated data import process by ~8x"
+    ],
+    "context": [
+      "MAYA Global is a startup providing an AI-powered 360° web platform for smart green management.",
+      "Joined the R&D and Data Science team to optimize business processes through data-driven tools."
+    ],
+    "referee": "Valentine G. (Founder & CEO), contact info available on demand"
   },
   {
-    "title": "Quality & Pre-sales Manager",
+    "title": "Business Analyst (Freelance)",
+    "company": "Loaker.ch",
+    "company_url": "https://loaker.ch/",
+    "period": "Jun 2023 - Aug 2023",
+    "location": "Lausanne, Switzerland",
+    "details": [
+      "Conducted a market study and competitive benchmark on password manager solutions",
+      "Prepared and delivered pitch decks and presentations for investors and partners",
+      "Generated leads and conducted interviews with CISOs and industry experts"
+    ],
+    "results": [
+      "Secured meetings with 15 CISOs",
+      "Advised a strategic shift from password management to cybersecurity awareness services",
+      "Helped grow client base from 0 to 5 within 3 months"
+    ],
+    "context": [
+      "Loaker.ch is a cybersecurity startup part of EPFL Innovation Park’s incubation program.",
+      "Joined the founding team (3 technical founders) as an external consultant during early-stage validation of business model and strategy."
+    ],
+    "referee": "Pierre D. (Founder & COO), contact info available on demand"
+  },
+  {
+    "title": "Quality & Pre-Sales Manager",
     "company": "SPRINT (Consulting Club)",
+    "company_url": "https://sprint-je.com/",
     "period": "Dec 2021 - May 2022",
     "location": "Paris, France",
     "details": [
-      "Automation: Developed automated tools for contract generation (G Suite and Apps Script)",
-      "Performance management: Developed dashboards and KPI tracking tools (G Suite and Apps Script)",
-      "Led the quality of pre-sales documents: commercial and technical relevance, legal compliance, invoicing",
-      "Strategy Management: Weekly and monthly activity reporting and business strategy suggestion to the board",
-      "Results: +30% in annual revenue, +33% in conversion rate"
-    ]
+      "Automated contract generation using G Suite and Apps Script",
+      "Developed dashboards and KPI tracking tools for performance management",
+      ["Reviewed and improved pre-sales documents:", "technical accuracy", "legal compliance", "invoicing"],
+      "Provided weekly and monthly strategic reports and recommendations to the board"
+    ],
+    "results": [
+      "Increased annual revenue by 30%",
+      "Improved client conversion rate by 33%"
+    ],
+    "context": [
+      "SPRINT is a Junior-Enterprise providing IT consulting and digital solutions."
+    ],
+    "referee": "Idir B. (former President), contact info available on demand"
   },
   {
     "title": "Project Manager",
     "company": "SPRINT (Consulting Club)",
+    "company_url": "https://sprint-je.com/",
     "period": "Oct 2020 - May 2022",
     "location": "Remote",
     "details": [
-      "Business Proposal Development: Specified solution's requirements and configuration, methodology, pricing, timeline",
-      "Project Management: Follow up on weekly feedback meeting with customer, and follow-up actions with technical team",
-      "Results: Management of 3 Digital Transformation Projects | Personal contribution of 15% of annual revenue (+13k€)"
-    ]
+      "Drafted business proposals: requirements, solution design, methodology, pricing, and timelines",
+      "Led client meetings and coordinated follow-up with technical teams",
+      "Supervised a consultant on a website development project for a naturopath",
+      "Managed a team of 2 consultants for video editing and logo animation projects (US-based client)",
+      "Managed a team of 3 consultants for a market study on bicycle repair stations"
+    ],
+    "results": [
+      "Generated €13k revenue (15% of annual turnover) through managed projects"
+    ],
+    "context": [
+      "SPRINT is a Junior-Enterprise providing IT consulting and digital solutions."
+    ],
+    "referee": "Idir B. (former President) and Aravind B. (former consultant), contact info available on demand"
+  },
+  {
+    "title": "Assistant Project Manager Intern",
+    "company": "Télécom SudParis Alumni",
+    "company_url": "https://www.tsp-alumni.org/",
+    "period": "May 2021 - Aug 2021",
+    "location": "Remote",
+    "details": [
+      "Developed an algorithm to validate email addresses (Python, Power BI)",
+      "Performed statistical analysis and data validation",
+      "Created dashboards and visualizations to present insights",
+      "Conducted alumni interviews and authored web articles",
+      "Planned initiatives to strengthen alumni-student engagement"
+    ],
+    "results": [
+      "Improved email database accuracy (+35% valid addresses)",
+      "Conducted 2 alumni interviews and published 2 articles",
+      "Co-organized an alumni-student networking event"
+    ],
+    "context": [
+      "Télécom SudParis Alumni is the official alumni association of Télécom SudParis."
+    ],
+    "referee": "Internship evaluation and commentary available on demand"
   }
 ]

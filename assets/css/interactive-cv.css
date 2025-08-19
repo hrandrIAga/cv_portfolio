@@ -415,3 +415,42 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* Nested bullet points */
+.item-details ul ul {
+    margin-top: 0.3rem;
+    margin-left: 1.5rem;
+    list-style: none;
+}
+
+.item-details ul ul li:before {
+    content: "◦"; /* smaller bullet */
+    color: #666;
+    font-weight: normal;
+}
+
+/* Highlight context */
+.context {
+    font-style: italic;
+    color: #555;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Highlight results */
+.results {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #2c3e50;
+    background: #eaf6ff;
+    border-left: 4px solid #3498db;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+}
+
+/* Referee italic */
+.referee {
+    font-style: italic;
+    margin-top: 0.8rem;
+    color: #444;
+}
+

@@ -79,16 +79,127 @@ function loadFallbackData() {
     renderSkills();
 }
 
-// Render experience section
-function renderExperience() {
-    const container = document.getElementById('experience-list');
-    container.innerHTML = '';
-    
-    experienceData.forEach(item => {
-        const experienceItem = createExpandableItem(item, 'experience');
-        container.appendChild(experienceItem);
+function renderExperience(experiences) {
+    const container = document.getElementById("experience-list");
+    container.innerHTML = "";
+
+    experiences.forEach(exp => {
+        const item = document.createElement("div");
+        item.classList.add("content-item");
+
+        // --- HEADER (collapsed view) ---
+        const header = document.createElement("div");
+        header.classList.add("item-header");
+
+        const info = document.createElement("div");
+        info.classList.add("item-info");
+
+        const title = document.createElement("h3");
+        title.textContent = exp.title;
+
+        const company = document.createElement("div");
+        company.classList.add("company");
+
+        // clickable company
+        if (exp.company_url) {
+            company.innerHTML = `<a href="${exp.company_url}" target="_blank">${exp.company}</a>`;
+        } else {
+            company.textContent = exp.company;
+        }
+
+        const period = document.createElement("div");
+        period.classList.add("period");
+        period.textContent = `${exp.period} | ${exp.location}`;
+
+        // referee italic (non-expanded view)
+        const referee = document.createElement("div");
+        referee.classList.add("referee");
+        referee.textContent = exp.referee || "";
+
+        info.appendChild(title);
+        info.appendChild(company);
+        info.appendChild(period);
+        info.appendChild(referee);
+
+        const expandIcon = document.createElement("div");
+        expandIcon.classList.add("expand-icon");
+        expandIcon.innerHTML = "&#9660;";
+
+        header.appendChild(info);
+        header.appendChild(expandIcon);
+
+        // --- DETAILS (expanded view) ---
+        const detailsWrapper = document.createElement("div");
+        detailsWrapper.classList.add("item-details");
+
+        const detailsContent = document.createElement("div");
+        detailsContent.classList.add("item-details-content");
+
+        // details
+        if (exp.details && exp.details.length > 0) {
+            const ul = document.createElement("ul");
+
+            exp.details.forEach(detail => {
+                if (Array.isArray(detail)) {
+                    // first item is level 1
+                    const li = document.createElement("li");
+                    li.textContent = detail[0];
+
+                    // create sublist
+                    const subUl = document.createElement("ul");
+                    subUl.classList.add("sub-list");
+
+                    detail.slice(1).forEach(subItem => {
+                        const subLi = document.createElement("li");
+                        subLi.textContent = subItem;
+                        subUl.appendChild(subLi);
+                    });
+
+                    li.appendChild(subUl);
+                    ul.appendChild(li);
+                } else {
+                    const li = document.createElement("li");
+                    li.textContent = detail;
+                    ul.appendChild(li);
+                }
+            });
+
+            detailsContent.appendChild(ul);
+        }
+
+        // results
+        if (exp.results && exp.results.length > 0) {
+            const resultsDiv = document.createElement("div");
+            resultsDiv.classList.add("results");
+            resultsDiv.innerHTML = "<strong>Key Results:</strong><ul>" +
+                exp.results.map(r => `<li>${r}</li>`).join("") +
+                "</ul>";
+            detailsContent.appendChild(resultsDiv);
+        }
+
+        // context
+        if (exp.context && exp.context.length > 0) {
+            const contextDiv = document.createElement("div");
+            contextDiv.classList.add("context");
+            contextDiv.innerHTML = exp.context.map(c => `<p>${c}</p>`).join("");
+            detailsContent.appendChild(contextDiv);
+        }
+
+        detailsWrapper.appendChild(detailsContent);
+
+        // --- assemble ---
+        item.appendChild(header);
+        item.appendChild(detailsWrapper);
+
+        // toggle expand
+        header.addEventListener("click", () => {
+            item.classList.toggle("expanded");
+        });
+
+        container.appendChild(item);
     });
 }
+
 
 // Render education section
 function renderEducation() {
