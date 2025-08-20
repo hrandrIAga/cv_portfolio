@@ -124,7 +124,19 @@ function createExpandableItem(data, type) {
     info.className = 'item-info';
     
     const title = document.createElement('h3');
-    title.textContent = data.title;
+    
+    // Handle title with URL for both experience and education
+    if (data.company_url || data.school_url) {
+        const titleLink = document.createElement('a');
+        titleLink.href = data.company_url || data.school_url;
+        titleLink.target = '_blank';
+        titleLink.className = 'title-link';
+        titleLink.textContent = data.title;
+        title.appendChild(titleLink);
+    } else {
+        title.textContent = data.title;
+    }
+    
     info.appendChild(title);
     
     if (data.company || data.school) {
@@ -163,6 +175,21 @@ function createExpandableItem(data, type) {
         info.appendChild(reference);
     }
     
+    // Add context for education items (displayed in non-expanded view)
+    if (data.details && data.details.context && Array.isArray(data.details.context) && type === 'education') {
+        const contextContainer = document.createElement('div');
+        contextContainer.className = 'education-context';
+        
+        data.details.context.forEach(contextLine => {
+            const contextLine_elem = document.createElement('div');
+            contextLine_elem.className = 'context-line';
+            contextLine_elem.textContent = contextLine;
+            contextContainer.appendChild(contextLine_elem);
+        });
+        
+        info.appendChild(contextContainer);
+    }
+    
     if (data.period) {
         const period = document.createElement('div');
         period.className = 'period';
@@ -173,12 +200,26 @@ function createExpandableItem(data, type) {
         info.appendChild(period);
     }
     
+    // Logo and expand icon container
+    const headerRight = document.createElement('div');
+    headerRight.className = 'header-right';
+    
+    // Add logo for education items
+    if (data.logo && type === 'education') {
+        const logoImg = document.createElement('img');
+        logoImg.src = data.logo;
+        logoImg.alt = `${data.school} logo`;
+        logoImg.className = 'education-logo';
+        headerRight.appendChild(logoImg);
+    }
+    
     const expandIcon = document.createElement('div');
     expandIcon.className = 'expand-icon';
     expandIcon.textContent = '▼';
+    headerRight.appendChild(expandIcon);
     
     header.appendChild(info);
-    header.appendChild(expandIcon);
+    header.appendChild(headerRight);
     
     const details = document.createElement('div');
     details.className = 'item-details';
@@ -186,8 +227,8 @@ function createExpandableItem(data, type) {
     const detailsContent = document.createElement('div');
     detailsContent.className = 'item-details-content';
     
-    // Add context section (for experience items)
-    if (data.context && Array.isArray(data.context) && data.context.length > 0) {
+    // Add context section (for experience items only)
+    if (data.context && Array.isArray(data.context) && data.context.length > 0 && type === 'experience') {
         const contextSection = document.createElement('div');
         contextSection.className = 'context-box';
         
@@ -204,8 +245,151 @@ function createExpandableItem(data, type) {
         detailsContent.appendChild(contextSection);
     }
     
-    // Add details with nested bullet points
-    if (data.details && Array.isArray(data.details)) {
+    // Handle education details
+    if (type === 'education' && data.details) {
+        // Add speciality if available
+        if (data.details.speciality) {
+            const specialityDiv = document.createElement('div');
+            specialityDiv.className = 'speciality';
+            specialityDiv.innerHTML = `<strong>Speciality:</strong> ${data.details.speciality}`;
+            detailsContent.appendChild(specialityDiv);
+        }
+        
+        // Handle coursework (can be array or object)
+        if (data.details.coursework) {
+            const courseworkSection = document.createElement('div');
+            courseworkSection.className = 'coursework-section';
+            
+            const courseworkTitle = document.createElement('h4');
+            courseworkTitle.textContent = 'Coursework';
+            courseworkSection.appendChild(courseworkTitle);
+            
+            if (Array.isArray(data.details.coursework)) {
+                // Simple list format
+                const courseList = document.createElement('ul');
+                courseList.className = 'simple-course-list';
+                data.details.coursework.forEach(course => {
+                    const courseItem = document.createElement('li');
+                    courseItem.textContent = course;
+                    courseList.appendChild(courseItem);
+                });
+                courseworkSection.appendChild(courseList);
+            } else if (typeof data.details.coursework === 'object') {
+                // Expandable categories format
+                const categoriesContainer = document.createElement('div');
+                categoriesContainer.className = 'coursework-categories';
+                
+                Object.keys(data.details.coursework).forEach(category => {
+                    const categoryItem = document.createElement('div');
+                    categoryItem.className = 'coursework-category';
+                    
+                    const categoryHeader = document.createElement('div');
+                    categoryHeader.className = 'category-header';
+                    categoryHeader.innerHTML = `<span class="category-name">${category}</span><span class="category-expand">▼</span>`;
+                    
+                    const categoryContent = document.createElement('div');
+                    categoryContent.className = 'category-content';
+                    
+                    const courseList = document.createElement('ul');
+                    data.details.coursework[category].forEach(course => {
+                        const courseItem = document.createElement('li');
+                        courseItem.textContent = course;
+                        courseList.appendChild(courseItem);
+                    });
+                    categoryContent.appendChild(courseList);
+                    
+                    categoryItem.appendChild(categoryHeader);
+                    categoryItem.appendChild(categoryContent);
+                    
+                    // Add click event for category expansion
+                    categoryHeader.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        categoryItem.classList.toggle('expanded');
+                    });
+                    
+                    categoriesContainer.appendChild(categoryItem);
+                });
+                
+                courseworkSection.appendChild(categoriesContainer);
+            }
+            
+            detailsContent.appendChild(courseworkSection);
+        }
+        
+        // Add research projects if available
+        if (data.details['research projects']) {
+            const researchSection = document.createElement('div');
+            researchSection.className = 'research-section';
+            
+            const researchTitle = document.createElement('h4');
+            researchTitle.textContent = 'Research Projects';
+            researchSection.appendChild(researchTitle);
+            
+            Object.keys(data.details['research projects']).forEach(projectTitle => {
+                const project = data.details['research projects'][projectTitle];
+                const projectItem = document.createElement('div');
+                projectItem.className = 'research-project';
+                
+                const projectHeader = document.createElement('div');
+                projectHeader.className = 'project-header';
+                
+                const titleLink = document.createElement('a');
+                titleLink.href = project.article_url;
+                titleLink.target = '_blank';
+                titleLink.className = 'project-title-link';
+                titleLink.textContent = projectTitle;
+                projectHeader.appendChild(titleLink);
+                
+                const projectDetails = document.createElement('div');
+                projectDetails.className = 'project-details';
+                
+                if (project.paper_type) {
+                    const paperType = document.createElement('span');
+                    paperType.className = 'paper-type';
+                    paperType.textContent = project.paper_type;
+                    projectDetails.appendChild(paperType);
+                }
+                
+                if (project.time) {
+                    const timeSpan = document.createElement('span');
+                    timeSpan.className = 'project-time';
+                    timeSpan.textContent = `Duration: ${project.time}`;
+                    projectDetails.appendChild(timeSpan);
+                }
+                
+                if (project.prof) {
+                    const profSpan = document.createElement('span');
+                    profSpan.className = 'project-prof';
+                    profSpan.textContent = `Supervisor: ${project.prof}`;
+                    projectDetails.appendChild(profSpan);
+                }
+                
+                if (project.conference) {
+                    const conferenceDiv = document.createElement('div');
+                    conferenceDiv.className = 'project-conference';
+                    conferenceDiv.textContent = `Published at: ${project.conference}`;
+                    projectDetails.appendChild(conferenceDiv);
+                }
+                
+                projectItem.appendChild(projectHeader);
+                projectItem.appendChild(projectDetails);
+                researchSection.appendChild(projectItem);
+            });
+            
+            detailsContent.appendChild(researchSection);
+        }
+        
+        // Add grades if available
+        if (data.details.grades) {
+            const gradesDiv = document.createElement('div');
+            gradesDiv.className = 'grades-info';
+            gradesDiv.innerHTML = `<strong>Academic Performance:</strong> <em>${data.details.grades}</em>`;
+            detailsContent.appendChild(gradesDiv);
+        }
+    }
+    
+    // Add details with nested bullet points (for experience items)
+    if (type === 'experience' && data.details && Array.isArray(data.details)) {
         const list = document.createElement('ul');
         list.className = 'details-list';
         
@@ -243,7 +427,7 @@ function createExpandableItem(data, type) {
         detailsContent.appendChild(list);
     }
     
-    // Add coursework (for education items)
+    // Add coursework (for old education format compatibility)
     if (data.coursework) {
         const coursework = document.createElement('div');
         coursework.innerHTML = `<strong>Relevant Coursework:</strong> ${data.coursework}`;
