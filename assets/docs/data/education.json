@@ -2,28 +2,55 @@
   {
     "title": "Master's in General IT Engineering",
     "school": "Télécom SudParis - Institut Polytechnique de Paris",
+    "school_url": "https://www.telecom-sudparis.eu/",
     "period": "2022-2024",
-    "location": "Paris, France",
-    "coursework": "Data Science, Software Programming, Mathematics, Optimization",
-    "details": [
-      "Comprehensive program covering advanced IT engineering concepts",
-      "Specialized focus on data science and machine learning applications",
-      "Strong foundation in mathematical optimization and software development",
-      "Hands-on experience with modern programming frameworks and tools"
-    ]
+    "location": "Palaiseau, France",
+    "logo": "assets/images/logos/logo_tsp.png",
+    "details": {
+      "context" : ["Télécom SudParis is a leading generalist engineering school, part of Institut Polytechnique de Paris, ranked among the top French engineering schools.", "I joined as a dual degree student from the business school track, combining IT, networks, data science, and working on research projects"],
+      "speciality" : "Data Science & Network Intelligence",
+      "coursework" : {
+        "mathematics" : ["machine learning theory", "statistics", "data analysis", "optimization: theory and application", "introduction to signal theory", "information and communication theory", "game theory", "scientific computing"],
+        "computer science" : ["deep learning, transfer learning - application to NLP", "data visualization","modeling databases and information systems", "software development", "software programming for OO app"],
+        "networks" : ["data networks", "network performance", "network programming", "wireless internet: concepts, technologies, architectures", "network/service security", "internet by practice", "wireless access networks", "network intelligence and communication services"],
+        "others" : ["blockchain for data scientists","fiber-optic communications", "economic performance", "quality management", "digital transformation and IS", "digital and energy consumption","multimedia acquisition and coding","introduction to neuroscience","neuroscience and recognition","foreign languages (English and German)"]
+      },
+      "grades" : "Grades and ranking available on demand",
+      "research projects" : {
+        "Computation offloading on 5G core network for a highly delay sensitive real time App" : {"prof" : "Marie-José MONTPETIT and Noël CRESPI", "conference" : "7th edition of Conference on Cloud and Internet of Things 2024 (CIoT’24), Oct 2024, Montreal, Canada.", "time" :"3 months", "details_url" : "", "article_url" :"https://archivesic.ccsd.cnrs.fr/TELECOM-SUDPARIS/hal-04725232v1"},
+        "Energy efficient technologies for 5G: overview, classification and qualitative comparison" : {"prof" : "Hang NGUYEN","paper_type" : "poster paper" ,"conference" : "10th International Conference on Communications and Electronics (ICCE), IEEE, Jul 2024, Da-nang, Vietnam", "time" :"4 months", "details_url" : "", "article_url" :"https://archivesic.ccsd.cnrs.fr/TELECOM-SUDPARIS/hal-04909325v1"}
+      }
+    }
   },
   {
     "title": "Master's in Management",
     "school": "Institut Mines-Télécom Business School",
+    "school_url": "https://www.imt-bs.eu/",
     "period": "2020-2024",
-    "location": "Paris, France",
-    "coursework": "Econometrics, R Programming, Law, Office Tools, Management of Technologies",
-    "details": [
-      "Dual degree program combining business management with technology focus",
-      "Advanced coursework in econometrics and statistical analysis",
-      "Legal and regulatory frameworks for technology companies",
-      "Strategic management of technology and innovation processes",
-      "Developed strong analytical and leadership skills"
-    ]
+    "location": "Evry, France",
+    "logo": "assets/images/logos/logo_imtbs.svg",
+    "details": {
+      "context" : ["IMT Business School is a leading French business school offering a strong digital and engineering-oriented management curriculum.", "I completed a dual degree in General IT Engineering, combining management, finance, and IT skills."],
+      "speciality" : "Dual Degree in General IT Engineering",
+      "coursework" : {
+        "finance & accounting" : ["fundamentals of accounting I", "fundamentals of accounting II", "introduction to finance", "accounting for managers", "principles of corporate finance", "financial accounting in IFRS"],
+        "IT Management and tools" : ["society and information technologies", "initiation to Unix system", "MS Excel", "introduction to computer programming", "corporate information system", "corporate telecommunications", "local area network", "management of innovation and technologies", "information system analysis and design"],
+        "HR, law & business management" : ["leadership", "HR management", "market research", "management techniques", "management strategy", "international business strategy","law, labor law and contract law", "business law" ],
+        "others" : ["sustainable development", "business economics", "managerial economics", "econometrics (R)", "introduction to marketing", "business and service marketing", "humanities", "personal efficiency", "foreign languages (English and German)"]
+      },
+      "grades" : "Grades and ranking available on demand"
+    }
+  },
+  {
+    "title": "CPGE in Economy",
+    "school": "Lycée Jean-Baptiste Kléber",
+    "school_url": "https://lycee-kleber.com.fr/cpge-economiques/",
+    "period": "2018-2020",
+    "location": "Strasbourg, France",
+    "logo" : "assets/images/logos/logo_kleber.png",
+    "details": {
+      "context" : ["CPGE (Classe Préparatoire aux Grandes Écoles) is an intensive two-year program preparing students for top French business schools.", "Joined the economic/scientific track and was shortlisted for the top mathematics class in the second year."],
+      "coursework": ["mathematics", "economics", "geopolitics", "philosophy", "literature", "foreign languages (English and German)"]
+    }
   }
 ]
