@@ -29,20 +29,40 @@ function initializeTabs() {
     });
 }
 
-// Load and render data
 async function loadData() {
+    console.log('🔄 Starting to load data...');
+    
     try {
         // Load data from JSON files
+        console.log('📂 Attempting to load experience.json...');
         experienceData = await fetchJSON('assets/docs/data/experience.json');
+        console.log('✅ Experience data loaded:', experienceData);
+        
+        console.log('📂 Attempting to load education.json...');
         educationData = await fetchJSON('assets/docs/data/education.json');
+        console.log('✅ Education data loaded:', educationData);
+        
+        console.log('📂 Attempting to load skills.json...');
         skillsData = await fetchJSON('assets/docs/data/skills.json');
+        console.log('✅ Skills data loaded:', skillsData);
         
         // Render the data
+        console.log('🎨 Rendering data...');
         renderExperience();
         renderEducation();
         renderSkills();
+        console.log('✅ All data rendered successfully');
+        
     } catch (error) {
-        console.error('Error loading data:', error);
+        console.error('❌ Error loading data:', error);
+        console.log('🔄 Falling back to hardcoded data...');
+        
+        // Check which specific file failed
+        console.log('📊 Current data state:');
+        console.log('- experienceData:', experienceData);
+        console.log('- educationData:', educationData);
+        console.log('- skillsData:', skillsData);
+        
         // Fallback to hardcoded data if JSON files are not available
         loadFallbackData();
     }
