@@ -79,6 +79,31 @@ function loadFallbackData() {
     renderSkills();
 }
 
+// NEW SKILL HELPER FUNCTIONS
+function getSkillLevelClass(level) {
+    switch(level) {
+        case 1: return 'beginner';
+        case 2: return 'beginner-medium';
+        case 3: return 'medium-advanced';
+        case 4: return 'advanced';
+        default: return 'beginner';
+    }
+}
+
+function getSkillLevelText(level) {
+    switch(level) {
+        case 1: return 'Beginner';
+        case 2: return 'Beginner/Medium';
+        case 3: return 'Medium/Advanced';
+        case 4: return 'Advanced';
+        default: return 'Beginner';
+    }
+}
+
+function toggleSkillDetails(skillElement) {
+    skillElement.classList.toggle('expanded');
+}
+
 // Render experience section
 function renderExperience() {
     const container = document.getElementById('experience-list');
@@ -101,11 +126,48 @@ function renderEducation() {
     });
 }
 
-// Render skills section
+// UPDATED RENDER SKILLS FUNCTION
 function renderSkills() {
     const container = document.getElementById('skills-list');
     container.innerHTML = '';
     
+    // Create skills legend
+    const legend = document.createElement('div');
+    legend.className = 'skills-legend';
+    
+    const legendTitle = document.createElement('h3');
+    legendTitle.textContent = 'Skill Level Legend';
+    legend.appendChild(legendTitle);
+    
+    const legendItems = document.createElement('div');
+    legendItems.className = 'legend-items';
+    
+    const levels = [
+        { class: 'beginner', text: 'Beginner' },
+        { class: 'beginner-medium', text: 'Beginner/Medium' },
+        { class: 'medium-advanced', text: 'Medium/Advanced' },
+        { class: 'advanced', text: 'Advanced' }
+    ];
+    
+    levels.forEach(level => {
+        const legendItem = document.createElement('div');
+        legendItem.className = 'legend-item';
+        
+        const legendColor = document.createElement('span');
+        legendColor.className = `legend-color ${level.class}`;
+        
+        const legendText = document.createElement('span');
+        legendText.textContent = level.text;
+        
+        legendItem.appendChild(legendColor);
+        legendItem.appendChild(legendText);
+        legendItems.appendChild(legendItem);
+    });
+    
+    legend.appendChild(legendItems);
+    container.appendChild(legend);
+    
+    // Create skill categories
     skillsData.forEach(category => {
         const skillCategory = createSkillCategory(category);
         container.appendChild(skillCategory);
@@ -144,9 +206,9 @@ function createExpandableItem(data, type) {
         company.className = 'company';
         
         // Check if company has URL
-        if (data.company_url) {
+        if (data.company_url || data.school_url) {
             const companyLink = document.createElement('a');
-            companyLink.href = data.company_url;
+            companyLink.href = data.company_url || data.school_url;
             companyLink.target = '_blank';
             companyLink.className = 'company-link';
             companyLink.textContent = data.company || data.school;
@@ -158,7 +220,18 @@ function createExpandableItem(data, type) {
         info.appendChild(company);
     }
     
-    // Add reference if available (for experience items)
+    // Period and location info
+    if (data.period) {
+        const period = document.createElement('div');
+        period.className = 'period';
+        period.textContent = data.period;
+        if (data.location) {
+            period.textContent += ` | ${data.location}`;
+        }
+        info.appendChild(period);
+    }
+    
+    // Add reference if available (for experience items) - moved AFTER period
     if (data.referee && type === 'experience') {
         const reference = document.createElement('div');
         reference.className = 'referee';
@@ -175,43 +248,24 @@ function createExpandableItem(data, type) {
         info.appendChild(reference);
     }
     
-    // Add context for education items (displayed in non-expanded view)
+    // Add context for education items (displayed in non-expanded view) - moved AFTER period and made italic/lowercase
     if (data.details && data.details.context && Array.isArray(data.details.context) && type === 'education') {
         const contextContainer = document.createElement('div');
-        contextContainer.className = 'education-context';
+        contextContainer.className = 'education-context-collapsed';
         
         data.details.context.forEach(contextLine => {
             const contextLine_elem = document.createElement('div');
-            contextLine_elem.className = 'context-line';
-            contextLine_elem.textContent = contextLine;
+            contextLine_elem.className = 'context-line-collapsed';
+            contextLine_elem.textContent = contextLine.toLowerCase();
             contextContainer.appendChild(contextLine_elem);
         });
         
         info.appendChild(contextContainer);
     }
     
-    if (data.period) {
-        const period = document.createElement('div');
-        period.className = 'period';
-        period.textContent = data.period;
-        if (data.location) {
-            period.textContent += ` | ${data.location}`;
-        }
-        info.appendChild(period);
-    }
-    
-    // Logo and expand icon container
+    // Logo and expand icon container - NO LOGO FOR EDUCATION
     const headerRight = document.createElement('div');
     headerRight.className = 'header-right';
-    
-    // Add logo for education items
-    if (data.logo && type === 'education') {
-        const logoImg = document.createElement('img');
-        logoImg.src = data.logo;
-        logoImg.alt = `${data.school} logo`;
-        logoImg.className = 'education-logo';
-        headerRight.appendChild(logoImg);
-    }
     
     const expandIcon = document.createElement('div');
     expandIcon.className = 'expand-icon';
@@ -265,7 +319,7 @@ function createExpandableItem(data, type) {
             courseworkSection.appendChild(courseworkTitle);
             
             if (Array.isArray(data.details.coursework)) {
-                // Simple list format
+                // Simple list format - unchanged
                 const courseList = document.createElement('ul');
                 courseList.className = 'simple-course-list';
                 data.details.coursework.forEach(course => {
@@ -275,28 +329,30 @@ function createExpandableItem(data, type) {
                 });
                 courseworkSection.appendChild(courseList);
             } else if (typeof data.details.coursework === 'object') {
-                // Expandable categories format
-                const categoriesContainer = document.createElement('div');
-                categoriesContainer.className = 'coursework-categories';
+                // Dictionary format - create expandable bullet points
+                const courseworkList = document.createElement('ul');
+                courseworkList.className = 'coursework-main-list';
                 
                 Object.keys(data.details.coursework).forEach(category => {
-                    const categoryItem = document.createElement('div');
-                    categoryItem.className = 'coursework-category';
+                    const categoryItem = document.createElement('li');
+                    categoryItem.className = 'coursework-category-item';
                     
                     const categoryHeader = document.createElement('div');
-                    categoryHeader.className = 'category-header';
+                    categoryHeader.className = 'coursework-category-header';
                     categoryHeader.innerHTML = `<span class="category-name">${category}</span><span class="category-expand">▼</span>`;
                     
                     const categoryContent = document.createElement('div');
-                    categoryContent.className = 'category-content';
+                    categoryContent.className = 'coursework-category-content';
                     
-                    const courseList = document.createElement('ul');
+                    const subCourseList = document.createElement('ul');
+                    subCourseList.className = 'coursework-sub-list';
                     data.details.coursework[category].forEach(course => {
                         const courseItem = document.createElement('li');
+                        courseItem.className = 'coursework-sub-item';
                         courseItem.textContent = course;
-                        courseList.appendChild(courseItem);
+                        subCourseList.appendChild(courseItem);
                     });
-                    categoryContent.appendChild(courseList);
+                    categoryContent.appendChild(subCourseList);
                     
                     categoryItem.appendChild(categoryHeader);
                     categoryItem.appendChild(categoryContent);
@@ -307,16 +363,16 @@ function createExpandableItem(data, type) {
                         categoryItem.classList.toggle('expanded');
                     });
                     
-                    categoriesContainer.appendChild(categoryItem);
+                    courseworkList.appendChild(categoryItem);
                 });
                 
-                courseworkSection.appendChild(categoriesContainer);
+                courseworkSection.appendChild(courseworkList);
             }
             
             detailsContent.appendChild(courseworkSection);
         }
         
-        // Add research projects if available
+        // Add research projects if available - with highlighted rectangles
         if (data.details['research projects']) {
             const researchSection = document.createElement('div');
             researchSection.className = 'research-section';
@@ -328,51 +384,57 @@ function createExpandableItem(data, type) {
             Object.keys(data.details['research projects']).forEach(projectTitle => {
                 const project = data.details['research projects'][projectTitle];
                 const projectItem = document.createElement('div');
-                projectItem.className = 'research-project';
+                projectItem.className = 'research-project-highlight';
                 
-                const projectHeader = document.createElement('div');
-                projectHeader.className = 'project-header';
+                // Create bullet point structure
+                const projectList = document.createElement('ul');
+                projectList.className = 'research-project-list';
+                
+                const mainProjectItem = document.createElement('li');
+                mainProjectItem.className = 'research-project-main';
                 
                 const titleLink = document.createElement('a');
                 titleLink.href = project.article_url;
                 titleLink.target = '_blank';
                 titleLink.className = 'project-title-link';
                 titleLink.textContent = projectTitle;
-                projectHeader.appendChild(titleLink);
+                mainProjectItem.appendChild(titleLink);
                 
-                const projectDetails = document.createElement('div');
-                projectDetails.className = 'project-details';
+                // Sub-bullets for project details
+                const projectSubList = document.createElement('ul');
+                projectSubList.className = 'research-project-sub-list';
                 
                 if (project.paper_type) {
-                    const paperType = document.createElement('span');
-                    paperType.className = 'paper-type';
-                    paperType.textContent = project.paper_type;
-                    projectDetails.appendChild(paperType);
+                    const paperTypeItem = document.createElement('li');
+                    paperTypeItem.className = 'research-project-sub';
+                    paperTypeItem.textContent = `Paper Type: ${project.paper_type}`;
+                    projectSubList.appendChild(paperTypeItem);
                 }
                 
                 if (project.time) {
-                    const timeSpan = document.createElement('span');
-                    timeSpan.className = 'project-time';
-                    timeSpan.textContent = `Duration: ${project.time}`;
-                    projectDetails.appendChild(timeSpan);
+                    const timeItem = document.createElement('li');
+                    timeItem.className = 'research-project-sub';
+                    timeItem.textContent = `Duration: ${project.time}`;
+                    projectSubList.appendChild(timeItem);
                 }
                 
                 if (project.prof) {
-                    const profSpan = document.createElement('span');
-                    profSpan.className = 'project-prof';
-                    profSpan.textContent = `Supervisor: ${project.prof}`;
-                    projectDetails.appendChild(profSpan);
+                    const profItem = document.createElement('li');
+                    profItem.className = 'research-project-sub';
+                    profItem.textContent = `Supervisor: ${project.prof}`;
+                    projectSubList.appendChild(profItem);
                 }
                 
                 if (project.conference) {
-                    const conferenceDiv = document.createElement('div');
-                    conferenceDiv.className = 'project-conference';
-                    conferenceDiv.textContent = `Published at: ${project.conference}`;
-                    projectDetails.appendChild(conferenceDiv);
+                    const conferenceItem = document.createElement('li');
+                    conferenceItem.className = 'research-project-sub';
+                    conferenceItem.textContent = `Published at: ${project.conference}`;
+                    projectSubList.appendChild(conferenceItem);
                 }
                 
-                projectItem.appendChild(projectHeader);
-                projectItem.appendChild(projectDetails);
+                projectList.appendChild(mainProjectItem);
+                projectList.appendChild(projectSubList);
+                projectItem.appendChild(projectList);
                 researchSection.appendChild(projectItem);
             });
             
@@ -468,7 +530,7 @@ function createExpandableItem(data, type) {
     return item;
 }
 
-// Create skill category
+// UPDATED CREATE SKILL CATEGORY FUNCTION
 function createSkillCategory(category) {
     const container = document.createElement('div');
     container.className = 'skills-category';
@@ -481,15 +543,59 @@ function createSkillCategory(category) {
     tagsContainer.className = 'skill-tags';
     
     category.skills.forEach(skill => {
-        const tag = document.createElement('span');
+        const skillItem = document.createElement('div');
+        skillItem.className = 'skill-item';
+        
+        const hasDetails = skill.details && skill.details.length > 0;
+        if (hasDetails) {
+            skillItem.classList.add('expandable');
+            skillItem.addEventListener('click', function() {
+                toggleSkillDetails(this);
+            });
+        }
+        
+        const tag = document.createElement('div');
         tag.className = 'skill-tag';
         
         if (skill.level) {
-            tag.classList.add(skill.level.toLowerCase());
+            const levelClass = getSkillLevelClass(skill.level);
+            tag.classList.add(levelClass);
         }
         
         tag.textContent = skill.name || skill;
-        tagsContainer.appendChild(tag);
+        
+        if (hasDetails) {
+            const expandIndicator = document.createElement('span');
+            expandIndicator.className = 'expand-indicator';
+            expandIndicator.textContent = '▼';
+            tag.appendChild(expandIndicator);
+        }
+        
+        skillItem.appendChild(tag);
+        
+        if (hasDetails) {
+            const skillDetails = document.createElement('div');
+            skillDetails.className = 'skill-details';
+            
+            const levelText = document.createElement('div');
+            levelText.className = 'skill-level-text';
+            levelText.textContent = getSkillLevelText(skill.level);
+            skillDetails.appendChild(levelText);
+            
+            const detailsList = document.createElement('ul');
+            detailsList.className = 'skill-details-list';
+            
+            skill.details.forEach(detail => {
+                const detailItem = document.createElement('li');
+                detailItem.textContent = detail;
+                detailsList.appendChild(detailItem);
+            });
+            
+            skillDetails.appendChild(detailsList);
+            skillItem.appendChild(skillDetails);
+        }
+        
+        tagsContainer.appendChild(skillItem);
     });
     
     container.appendChild(tagsContainer);

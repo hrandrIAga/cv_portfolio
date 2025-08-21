@@ -17,7 +17,7 @@
       },
       "grades" : "Grades and ranking available on demand",
       "research projects" : {
-        "Computation offloading on 5G core network for a highly delay sensitive real time App" : {"prof" : "Marie-José MONTPETIT and Noël CRESPI", "conference" : "7th edition of Conference on Cloud and Internet of Things 2024 (CIoT’24), Oct 2024, Montreal, Canada.", "time" :"3 months", "details_url" : "", "article_url" :"https://archivesic.ccsd.cnrs.fr/TELECOM-SUDPARIS/hal-04725232v1"},
+        "Computation offloading on 5G core network for a highly delay sensitive real time App" : {"prof" : "Marie-José MONTPETIT and Noël CRESPI", "paper_type": "short paper","conference" : "7th edition of Conference on Cloud and Internet of Things 2024 (CIoT’24), Oct 2024, Montreal, Canada.", "time" :"3 months", "details_url" : "", "article_url" :"https://archivesic.ccsd.cnrs.fr/TELECOM-SUDPARIS/hal-04725232v1"},
         "Energy efficient technologies for 5G: overview, classification and qualitative comparison" : {"prof" : "Hang NGUYEN","paper_type" : "poster paper" ,"conference" : "10th International Conference on Communications and Electronics (ICCE), IEEE, Jul 2024, Da-nang, Vietnam", "time" :"4 months", "details_url" : "", "article_url" :"https://archivesic.ccsd.cnrs.fr/TELECOM-SUDPARIS/hal-04909325v1"}
       }
     }

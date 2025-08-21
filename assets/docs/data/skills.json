@@ -2,65 +2,67 @@
   {
     "category": "Languages",
     "skills": [
-      {"name": "French", "level": "advanced"},
-      {"name": "English (TOEIC 975/990)", "level": "advanced"},
-      {"name": "German", "level": "medium"},
-      {"name": "Malagasy", "level": "advanced"}
+      {"name": "French", "level": 4, "details": ["Native speaker"]},
+      {"name": "English", "level": 4, "details": ["Professional proficiency", "6-month internship in English", "Master's program taught in English", "TOEIC 975/990"]},
+      {"name": "German", "level": 3, "details": ["Intermediate academic level (B1/B2)", "Practical experience during several trips"]},
+      {"name": "Malagasy", "level": 4, "details": ["Native speaker"]}
     ]
   },
   {
-    "category": "Data Science & AI",
+    "category": "Python",
     "skills": [
-      {"name": "Python", "level": "advanced"},
-      {"name": "TensorFlow", "level": "advanced"},
-      {"name": "PyTorch", "level": "advanced"},
-      {"name": "Keras", "level": "advanced"},
-      {"name": "Pandas/Polars", "level": "advanced"},
-      {"name": "NumPy", "level": "advanced"},
-      {"name": "Scikit-learn", "level": "advanced"},
-      {"name": "Streamlit", "level": "advanced"}
+      {"name": "TensorFlow", "level": 3, "details": ["Used in academic and personal projects"]},
+      {"name": "PyTorch", "level": 3, "details": ["Used in academic and personal projects"]},
+      {"name": "Pandas/Polars", "level": 4, "details": ["Extensive use in academic, professional and personal projects"]},
+      {"name": "NumPy", "level": 4, "details": ["Extensive use in academic, professional and personal projects"]},
+      {"name": "Scikit-learn", "level": 3, "details": ["Applied in several academic and personal projects"]},
+      {"name": "Streamlit", "level": 2, "details": ["Developed interactive apps for academic and personal projects, occasionally assisted by GenAI"]}
     ]
   },
   {
     "category": "Programming & Development",
     "skills": [
-      {"name": "R", "level": "medium"},
-      {"name": "Bash", "level": "medium"},
-      {"name": "MySQL", "level": "medium"},
-      {"name": "C++", "level": "beginner"},
-      {"name": "PHP (Laravel)", "level": "medium"},
-      {"name": "Vue.JS", "level": "medium"},
-      {"name": "Git", "level": "medium"}
+      {"name": "R", "level": 1, "details": ["Basic introduction (30h class)", "Applied in one academic project"]},
+      {"name": "Bash", "level": 2, "details": ["Introduced during 30h class", "Used for scripting and automation in multiple projects"]},
+      {"name": "MySQL", "level": 2, "details": ["Introduced during 30h class", "Applied in professional context during 6-month internship"]},
+      {"name": "C++", "level": 1, "details": ["Self-taught for one introductory academic project"]},
+      {"name": "PHP (Laravel)", "level": 1, "details": ["Self-taught, applied in simple professional applications during 6-month internship"]},
+      {"name": "Java", "level": 1, "details": ["Basic introduction (60h class)"]},
+      {"name": "Vue.JS", "level": 1, "details": ["Self-taught, applied in simple professional applications during 6-month internship"]},
+      {"name": "Git", "level": 2, "details": ["Introduced during 3h class", "Used in small team projects", "Applied in professional environment during internship"]}
     ]
   },
   {
     "category": "Business & Analytics Tools",
     "skills": [
-      {"name": "MS Excel", "level": "advanced"},
-      {"name": "Power BI", "level": "advanced"},
-      {"name": "Google Suite & Apps Script", "level": "advanced"},
-      {"name": "AWS Bedrock", "level": "medium"}
+      {"name": "MS Excel/Google Sheets", "level": 3, "details": ["Applied in academic, personal and professional projects", "Automation and advanced usage in professional context"]},
+      {"name": "Power BI", "level": 1, "details": ["Self-taught, applied in one professional project and personal projects"]},
+      {"name": "Google Suite & Apps Script", "level": 2, "details": ["Used for automation in professional projects"]},
+      {"name": "GenAI tools", "level": 3, "details": ["Self-taught, integrated into professional projects"]},
+      {"name": "AWS Bedrock", "level": 1, "details": ["Self-taught, applied in professional prototypes"]}
     ]
   },
   {
-    "category": "Soft Skills",
+    "category": "Main Soft Skills",
     "skills": [
-      {"name": "Curiosity", "level": "advanced"},
-      {"name": "Creativity", "level": "advanced"},
-      {"name": "Problem-solving", "level": "advanced"},
-      {"name": "Documentation", "level": "advanced"},
-      {"name": "Team work", "level": "advanced"},
-      {"name": "Fast Learner", "level": "advanced"}
+      {"name": "Curiosity"},
+      {"name": "Creativity"},
+      {"name": "Problem-solving"},
+      {"name": "Documentation"},
+      {"name": "Teamwork"},
+      {"name": "Fast learning"}
     ]
   },
   {
     "category": "Interests & Achievements",
     "skills": [
-      {"name": "Water-Polo (14 years, National Junior level)", "level": "advanced"},
-      {"name": "Geography (Geoguessr Gold Division)", "level": "advanced"},
-      {"name": "Cybersecurity (DGSE 404CTF 2024 - 142nd/3267)", "level": "medium"},
-      {"name": "Scientific Research (2 IEEE Conference Papers)", "level": "advanced"},
-      {"name": "First-aid & Sea Lifeguard", "level": "advanced"}
+      {"name": "Water Polo", "details" : ["Currently competing at regional level", "Former junior national level (2014–2016)"]},
+      {"name": "Swimming", "details" : ["Former Division 2 national competitor", "Multiple-time junior regional champion"]},
+      {"name": "First-aid & Sea Lifeguard", "details" : ["First-aid team member (SNSM, 2017–2020)", "Summer Sea Lifeguard (SNSM, 2019)"]},
+      {"name": "Travel & Foreign Cultures", "details" : ["Dual international master's program in English", "2025: gap semester after graduation – visited 3 continents"]},
+      {"name": "Geoguessr","level" : 3 ,"details" : ["Former Gold Division player"]},
+      {"name": "Chess", "details" : ["Regional top 3 player U10 & U12 categories"]},
+      {"name": "Cybersecurity CTF", "level" : 2,"details" : ["404CTF 2024: 142nd/3267", "Completed AI and Quantum categories"]}
     ]
   }
 ]
