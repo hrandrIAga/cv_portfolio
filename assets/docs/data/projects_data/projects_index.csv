@@ -1,0 +1,11 @@
+title;organizer;event;project_type;project_field;team;result;id;illustration;tech_stack;description
+Optimizing Swimming Fantasy Teams Under Constraints;World Aquatics;Swimming Fantasy Game 2024;["hackathon/challenge","optimization"];data/AI;0;["11th / 5500+"];hackathon-worldaquatics;;;
+GenAI-Powered Business Fact Sheet Generator;Sia Partners;HGen AI Hackathon 2025;["hackathon/challenge","POC"];data/AI;4;["First Prize"];hackathon-siapartners;;;
+Data-Driven Web App for Smart Energy Agriculture;Nasa;Space App Challenge 2024;["hackathon/challenge","POC"];data/AI;5;["2nd Prize (France)","Shortlisted for Global Final"];hackathon-nasa;;;
+Data Visualization Tool for Wetlands Health;Genopole;D4Gen Hackathon 2024;["hackathon/challenge","POC"];data/AI;7;["Jury's choice award"];hackathon-d4gen;;;
+Overview of Energy-Efficient 5G Technologies;SAMOVAR lab (group NeSS);;["scientific research","academic"];wireless network;2;["10th IEEE ICCE (2024, Da Nang, Vietnam)"];conferencepaper-overviewgreen5g;;;
+Computation Offloading in 5G Core Networks for Delay-Sensitive Apps;SAMOVAR lab (group NeSS);;["scientific research","academic"];wireless network;2;["7th IEEE/IFIP CIoT (2024, Montreal, Canada)"];conferencepaper-computationoffloading;;;
+Analysis of German/French Electricity Futures;Qube Research and Technology;Data Challenge 2023;["hackathon/challenge","optimization"];data/AI;0;["50th / 750"];challenge-qubert;;;
+Real-Time Paris Subway Crowding Forecast;SNCF Transilien;Data Challenge 2024;["hackathon/challenge","optimization"];data/AI;0;["9th / 221"];challenge-sncf;;;
+ESP32S3 Multi-Hop BLE Chat;Télécom SudParis;NET4104 class;["perso","academic"];wireless network;0;;esp32s3-multihopchat;;;
+

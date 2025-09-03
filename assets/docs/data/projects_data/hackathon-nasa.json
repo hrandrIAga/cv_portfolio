@@ -1,0 +1,26 @@
+{
+  "title": "Data-Driven Web App for Smart Energy Agriculture",
+  "index": {
+    "url": "hackathon-nasa",
+    "project_type": ["hackathon/challenge","POC"],
+    "project_field": "Data/AI"
+  },
+  "abstract": {
+    "description": "POC website leveraging NASA open data to assist farmers in energy-efficient agriculture.",
+    "event": ["NASA Space App Challenge 2024",""],
+    "team_size": "4-people team",
+    "tech_stack": ["Python","PHP","Open Data APIs"],
+    "period": "48 hours"
+  },
+  "detail": {
+    "context": "Farmers often lack access to accurate, data-driven insights for energy-efficient practices.",
+    "approach": "Built a POC web app integrating open NASA datasets to provide actionable recommendations.",
+    "solution_description": "The app processes data from open APIs to guide farmers on energy-efficient strategies.",
+    "pros": "Practical data-driven solution, team collaboration, ranked highly.",
+    "cons_and_improvements_ideas": "Demo not available, screenshots only; could be improved with a fully deployed web app.",
+    "results": ["2nd Prize (France)","Shortlisted for Global Final"]
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}

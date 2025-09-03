@@ -1,0 +1,31 @@
+{
+  "title": "Data Visualization Tool for Wetlands Health",
+  "index": {
+    "url": "hackathon-d4gen",                    
+    "type": ["Hackathon/Challenge"], 
+    "categories": ["Data/AI"]       
+  },
+  "abstract": {
+    "description": "Web app leveraging GenAI to automatically generate business fact sheets for French cities, used by commercial teams for client meetings and negotiations.",
+    "event" : ["D4gen Hackathon 2024"],
+    "organizer": ["Genopole"],
+    "team_size": "7-people team",
+    "tech_stack": ["Python", "Streamlit", "AWS Bedrock", "GenAI"],
+    "period" : "48h"
+  },
+  "detail": {
+    "context": "Commercial teams often need **city-specific** fact sheets *for client meetings*, \n but creating them manually is : \n\n - time-consuming and \n - error-prone \n - [url google](https://www.google.com/)",
+    "approach": "Built a web app that integrates GenAI and data APIs to automatically collect, process, and generate fact sheets from public data sources.",
+    "solution_description": "The solution allows users to select a city, retrieve relevant data automatically, process it with GenAI, and generate a ready-to-use fact sheet in PDF format.",
+    "pros": "Fast automation, reduces human error, scalable for multiple cities, leverages cutting-edge AI.",
+    "cons_and_improvements_ideas": "The web app is a POC; needs improved UI, more robust API error handling, and support for multi-language fact sheets.",
+    "results": ["First Prize – HGen AI Hackathon 2025", "Negotiations ongoing to commercialize the solution"]
+  },
+  "resources": {
+    "demo": ["pending", ""],
+    "github": ["available", "https://github.com/username/project"],
+    "report": ["available", "path/to/report.pdf"],
+    "pitch_slides": ["unavailable"],
+    "photos": ["available", "path/to/photos-folder/"]
+  }
+}

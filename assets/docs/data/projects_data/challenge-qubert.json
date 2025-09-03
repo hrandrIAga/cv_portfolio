@@ -1,0 +1,26 @@
+{
+  "title": "Analysis of German/French Electricity Futures",
+  "index": {
+    "url": "challenge-qubert",
+    "project_type": ["hackathon/challenge","optimization"],
+    "project_field": "Data/AI"
+  },
+  "abstract": {
+    "description": "Explaining the evolution of differences in electricity futures between France and Germany.",
+    "event": ["Qube Research and Technology Data Challenge 2023",""],
+    "team_size": "individual",
+    "tech_stack": ["Python","Google Colab","Pandas","Matplotlib"],
+    "period": "Several days"
+  },
+  "detail": {
+    "context": "Market analysts need to understand variations in electricity futures for trading decisions.",
+    "approach": "Analyzed historical data, visualized trends, and built simple predictive models.",
+    "solution_description": "Produced a report explaining key factors influencing electricity futures differences.",
+    "pros": "Clear visualization, reproducible code.",
+    "cons_and_improvements_ideas": "Could enhance models for more accurate predictions.",
+    "results": ["50th / 750"]
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}

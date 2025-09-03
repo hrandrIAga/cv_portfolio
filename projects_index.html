@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Portfolio - Haga Randrianaly</title>
+    <link rel="stylesheet" href="assets/css/project_index.css">
+</head>
+<body>
+    <header class="cv-header">
+        <div class="header-content">
+            <div class="profile-section">
+                <img src="assets/images/profile/profile-small.png" alt="Haga Randrianaly" class="profile-image">
+            </div>
+            <div class="info-section">
+                <h1>Haga Randrianaly</h1>
+                <p class="tagline">Junior Data Scientist</p>
+                <div class="contact-details">
+                    <span>📧 haga.randrianaly@gmail.com</span>
+                    <span>📱 +33 787 78 03 62</span>
+                    <span>💼 <a href="https://linkedin.com/in/haga-randrianaly/en" target="_blank">LinkedIn</a></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">🚀 Projects Portfolio</h2>
+        
+        <div id="loading" class="loading">
+            <div>Loading projects data... ⏳</div>
+        </div>
+
+        <div id="main-content" style="display: none;">
+            <div class="filters-section">
+                <h3>🔍 Filter Projects</h3>
+                
+                <div class="filter-group">
+                    <h3>📊 Project Field</h3>
+                    <div id="field-filters" class="filter-options">
+                        <!-- Dynamic filters will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>🎯 Project Type</h3>
+                    <div id="type-filters" class="filter-options">
+                        <!-- Dynamic filters will be inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="field-categories" class="category-section">
+                <div class="category-header">📊 Projects by Field</div>
+                <div id="field-content" class="projects-grid">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+
+            <div id="type-categories" class="category-section">
+                <div class="category-header">🎯 Projects by Type</div>
+                <div id="type-content" class="projects-grid">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="error-content" style="display: none;">
+            <div class="error">
+                <h3>⚠️ Error Loading Projects</h3>
+                <p>Unable to load projects data. Please check the CSV file path.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/project_index.js"></script>
+</body>
+</html>

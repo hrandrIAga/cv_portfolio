@@ -1,0 +1,26 @@
+{
+  "title": "Overview of Energy-Efficient 5G Technologies",
+  "index": {
+    "url": "conferencepaper-overviewgreen5g",
+    "project_type": ["scientific research","academic"],
+    "project_field": "Wireless Network"
+  },
+  "abstract": {
+    "description": "Survey and qualitative comparison of energy-efficient technologies for 5G networks.",
+    "event": ["SAMOVAR lab, Télécom SudParis",""],
+    "team_size": "total of 4 co-authors",
+    "tech_stack": ["Literature Review","Data Analysis","Python"],
+    "period": "Several months"
+  },
+  "detail": {
+    "context": "Energy efficiency in 5G is crucial for sustainability and cost reduction.",
+    "approach": "Reviewed multiple technologies and classified them according to energy-saving potential.",
+    "solution_description": "Provided a qualitative comparison and recommendations for 5G deployment.",
+    "pros": "Comprehensive survey, conference publication.",
+    "cons_and_improvements_ideas": "Could include quantitative analysis for more impact.",
+    "results": ["7th IEEE/IFIP CIoT (2024, Montreal, Canada)"]
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}

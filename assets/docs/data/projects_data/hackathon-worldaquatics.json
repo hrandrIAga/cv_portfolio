@@ -1,0 +1,26 @@
+{
+  "title": "Optimizing Swimming Fantasy Teams Under Constraints",
+  "index": {
+    "url": "hackathon-worldaquatics",
+    "project_type": ["hackathon/challenge","optimization"],
+    "project_field": "Data/AI"
+  },
+  "abstract": {
+    "description": "Optimization problem to select the best swimming team to maximize points under constraints.",
+    "event": ["World Aquatics Swimming Fantasy Game 2024",""],
+    "team_size": "individual",
+    "tech_stack": ["Google Sheets", "Optimization formulas"],
+    "period": "48 hours"
+  },
+  "detail": {
+    "context": "Fantasy swimming game with a large number of participants and scoring rules.",
+    "approach": "Used spreadsheet formulas and manual optimization to select the best team.",
+    "solution_description": "Designed a model in Google Sheets to compute scores and simulate different team combinations.",
+    "pros": "Quick implementation, good ranking among thousands of participants.",
+    "cons_and_improvements_ideas": "Not fully automated, presentation of sheet can be improved for professional use.",
+    "results": ["11th / 5500+"]
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}

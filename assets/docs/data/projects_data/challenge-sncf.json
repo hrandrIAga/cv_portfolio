@@ -1,0 +1,26 @@
+{
+  "title": "Real-Time Paris Subway Crowding Forecast",
+  "index": {
+    "url": "challenge-sncf",
+    "project_type": ["hackathon/challenge","optimization"],
+    "project_field": "Data/AI"
+  },
+  "abstract": {
+    "description": "Forecasting train crowding in Paris using historical and real-time data.",
+    "event": ["SNCF Transilien Data Challenge 2024",""],
+    "team_size": "individual",
+    "tech_stack": ["Python","Pandas","Machine Learning"],
+    "period": "Several days"
+  },
+  "detail": {
+    "context": "Train crowding impacts passenger experience and operational planning.",
+    "approach": "Built predictive models on historical datasets to forecast passenger loads.",
+    "solution_description": "Produced real-time forecasts and visualizations to guide operational decisions.",
+    "pros": "Accurate predictions, available GitHub code.",
+    "cons_and_improvements_ideas": "Could include more granular features or integration with live sensors.",
+    "results": ["9th / 221"]
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}

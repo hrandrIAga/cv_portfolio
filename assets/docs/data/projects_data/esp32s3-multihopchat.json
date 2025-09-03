@@ -1,0 +1,26 @@
+{
+  "title": "ESP32S3 Multi-Hop BLE Chat",
+  "index": {
+    "url": "esp32s3-multihopchat",
+    "project_type": ["perso","academic"],
+    "project_field": "Wireless Network"
+  },
+  "abstract": {
+    "description": "Implementation of a multi-hop BLE chat system using ESP32S3 microcontrollers.",
+    "event": ["Télécom SudParis NET4104 class",""],
+    "team_size": "individual",
+    "tech_stack": ["C++","Arduino","BLE"],
+    "period": "Several weeks"
+  },
+  "detail": {
+    "context": "Demonstrate multi-hop BLE communication for small networked devices.",
+    "approach": "Developed firmware and logic for message passing between ESP32 nodes.",
+    "solution_description": "Users can chat across multiple ESP32 devices using BLE multi-hop network.",
+    "pros": "Hands-on embedded experience, working prototype.",
+    "cons_and_improvements_ideas": "UI minimal; only worked in class environment.",
+    "results": []
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}

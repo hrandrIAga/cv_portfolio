@@ -1,46 +1,47 @@
 # Personal Portfolio Website - Data Science & Network Intelligence
 
-Portfolio website showcasing data science projects, research work, and professional experience for PhD applications and industry positions.
+Portfolio website showcasing data science projects, research work, and professional experience.
 
 ## 🎯 Target Applications
-- PhD positions in Data Science and Network Intelligence
-- Data Science contracts and positions
+- Data Science/Machine Learning contracts and positions
 - Research collaborations
+- Hackathon collaboration
 
 ## 📁 Repository Structure
 ├── README.md  
-├── index.html                          # Landing/welcome page  
-├── interactive-cv.html                 # Main interactive CV page  
-├── projects/  
-│   ├── hackathons/  
-│   │   ├── project-1.html  
-│   │   └── ...  
-│   ├── research/  
-│   │   ├── project-1.html  
-│   │   └── ...  
-│   └── others/  
-│   │   ├── project-1.html  
-│   │   └── ...  
+├── index.html                          # Landing/welcome page - main entry point  
+├── interactive-cv.html                 # Interactive CV page with tabbed sections  
+├── projects_index.html                 # Projects portfolio landing page with filtering capabilities  
+|  
+├── projects/                           # Individual project detail pages  
+│   ├── project-1.html                  # Detailed view for specific project  
+│   ├── project-2.html  
+│   ├── ...  
+|   └── project-n.html  
+│  
 ├── assets/  
-│   ├── components/  
-│   │   ├── header.html  
-│   │   └── footer.html  
 │   ├── css/  
-│   │   ├── main.css                    # Global styles  
-│   │   ├── landing.css                 # Landing page specific  
+│   │   ├── project_index.css           # Projects index page specific  
 │   │   ├── interactive-cv.css          # Interactive CV specific  
-│   │   └── projects.css                # Projects pages specific  
+│   │   └── projects.css                # Projects detailed pages specific  
+│   │  
 │   ├── js/  
-│   │   ├── main.js                     # Global utilities  
-│   │   ├── interactive-cv.js           # Tab switching, expand/collapse  
-│   │   └── projects.js                 # Project carousel/gallery  
+│   │   ├── main-cv.js                 #   
+│   │   ├── project_index.js           #  
+│   │   ├── project_loader.js          #  
+│   │   └── cv-modules/  
+│   │       ├── education.js           #  
+│   │       ├── experience.js          #  
+│   │       └── skills.js              #  
+│   │  
 │   ├── images/  
 │   │   ├── profile/  
 │   │   ├── projects/  
 │   │   │   ├── hackathons/  
 │   │   │   ├── research/  
 │   │   │   └── others/  
-│   │   └── icons/                      # UI icons, social media icons  
+│   │   └── icons/                      # UI icons, social media icons    
+│   │  
 │   └── docs/  
 │       ├── cv-en.pdf  
 │       ├── cv-fr.pdf  
@@ -48,7 +49,13 @@ Portfolio website showcasing data science projects, research work, and professio
 │           ├── experience.json         # Experience data  
 │           ├── education.json          # Education data  
 │           ├── skills.json             # Skills data  
-│           └── projects.json           # Projects metadata  
+│           └── projects_data/  
+|               ├── projects_index.csv  # Database of projects  
+|               ├── project-1.json      # Specific project data  
+|               ├── project-2.json      
+|               ├── ...
+|               └──  project-n.json 
+
 
 ## 🌐 Features
 - **Responsive Design** - Works on all devices
@@ -59,7 +66,7 @@ Portfolio website showcasing data science projects, research work, and professio
 - **Individual Project Pages** - Comprehensive project documentation
 
 ## 🚀 Technical Stack
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Frontend**: HTML, CSS, JavaScript
 - **Styling**: Modern CSS with glassmorphism and animations
 - **Translation**: JavaScript-based language switching
 - **Deployment**: GitHub Pages
@@ -69,10 +76,13 @@ Portfolio website showcasing data science projects, research work, and professio
 🚧 **Under Construction**
 - [x] Repository structure complete
 - [x] Project organization finalized
-- [ ] Main content implementation
-- [ ] Individual project pages
+- [x] Interactive cv implementation (with sub tabs)
+- [x] Individual project pages template
+- [ ] Individual project pages content
 - [ ] Asset integration
-- [ ] GitHub Pages deployment
+- [ ] Translation toggle
+- [ ] Clear/dark theme integration
+- [x] GitHub Pages deployment
 
 ## 🔗 Live Site
-Coming soon: GitHub Pages deployment at `https://hrandrIAga.github.io/my-wc-website`
+Coming soon: GitHub Pages deployment at `https://hrandriaga.github.io/cv_portfolio/`

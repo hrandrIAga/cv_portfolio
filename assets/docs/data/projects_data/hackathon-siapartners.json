@@ -1,0 +1,26 @@
+{
+  "title": "GenAI-Powered Business Fact Sheet Generator",
+  "index": {
+    "url": "hackathon-siaparners",
+    "project_type": ["hackathon/challenge","POC"],
+    "project_field": "Data/AI"
+  },
+  "abstract": {
+    "description": "Web app leveraging GenAI to automatically generate business fact sheets for French cities, used by commercial teams for client meetings and negotiations.",
+    "event": ["Sia Partners HGen AI Hackathon 2025",""],
+    "team_size": "4 people team",
+    "tech_stack": ["Python", "Streamlit", "AWS Bedrock", "GenAI"],
+    "period": "48 hours"
+  },
+  "detail": {
+    "context": "Commercial teams often need city-specific fact sheets for client meetings, but creating them manually is time-consuming and error-prone.",
+    "approach": "Built a web app that integrates GenAI and data APIs to automatically collect, process, and generate fact sheets from public data sources.",
+    "solution_description": "The solution allows users to select a city, retrieve relevant data automatically, process it with GenAI, and generate a ready-to-use fact sheet in PDF format.",
+    "pros": "Fast automation, reduces human error, scalable for multiple cities, leverages cutting-edge AI.",
+    "cons_and_improvements_ideas": "The web app is a POC; needs improved UI, more robust API error handling, and support for multi-language fact sheets.",
+    "results": ["First Prize – HGen AI Hackathon 2025"]
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}

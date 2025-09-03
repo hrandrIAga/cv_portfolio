@@ -1,0 +1,26 @@
+{
+  "title": "Computation Offloading in 5G Core Networks for Delay-Sensitive Apps",
+  "index": {
+    "url": "conference-paper-green5g",
+    "project_type": ["scientific research","academic"],
+    "project_field": "Wireless Network"
+  },
+  "abstract": {
+    "description": "Research on offloading computation in 5G networks for highly delay-sensitive applications.",
+    "event": ["SAMOVAR lab, Télécom SudParis",""],
+    "team_size": "total of 3 co-authors",
+    "tech_stack": ["Python","Simulation tools","5G Network Models"],
+    "period": "Several months"
+  },
+  "detail": {
+    "context": "Delay-sensitive apps require optimizing computation placement in 5G networks to reduce latency.",
+    "approach": "Modeled computation offloading strategies and evaluated them through simulations.",
+    "solution_description": "Proposed an offloading framework to improve latency performance in 5G cores.",
+    "pros": "Scientific contribution, published in IEEE conference.",
+    "cons_and_improvements_ideas": "Needs experimental validation in real network environments.",
+    "results": ["10th IEEE ICCE (2024, Da Nang, Vietnam)"]
+  },
+  "resources": {
+    "demo": ["coming soon",""]
+  }
+}
