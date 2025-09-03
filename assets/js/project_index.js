@@ -255,10 +255,10 @@ function createTechStackCarousel(techStack) {
 
 function createProjectListItem(project) {
     const projectId = `project-${project.id}-${Math.random().toString(36).substr(2, 9)}`;
-    
+    // <a href="projects/project-${project.id}.html" class="project-link">
     return `
         <div class="project-item">
-            <a href="projects/project-${project.id}.html" class="project-link">
+            <a href="projects/project-comingsoon.html" class="project-link">
                 <div class="project-title-list">${project.title}</div>
                 <div class="project-meta">
                     ${project.organizer ? `${project.organizer}` : ''}
@@ -276,8 +276,8 @@ function createProjectListItem(project) {
                 <div class="project-expanded" id="${projectId}">
                     ${project.description ? `<div class="project-description-list">${project.description}</div>` : ''}
                     ${createAdditionalInfo(project)}
-                    <a href="projects/project-${project.id}.html" class="see-more-link">
-                        📖 See full details →
+                    <a href="projects/project-comingsoon.html" class="see-more-link">
+                        📖 See full details (coming soon)→
                     </a>
                 </div>
             ` : ''}
@@ -417,12 +417,14 @@ function goToCurrentProject(carouselId) {
     
     const projectId = activeSlide.getAttribute('data-project-id');
     if (projectId) {
-        window.location.href = `projects/project-${projectId}.html`;
+        //window.location.href = `projects/project-${projectId}.html`;
+        window.location.href = `projects/project-comingsoon.html`;
     }
 }
 
 function goToProject(projectId) {
-    window.location.href = `projects/project-${projectId}.html`;
+    //window.location.href = `projects/project-${projectId}.html`;
+    window.location.href = `projects/project-comingsoon.html`;
 }
 
 // Initialize when page loads
